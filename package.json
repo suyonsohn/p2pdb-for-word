@@ -1,0 +1,15 @@
+{
+    "name": "p2pdb-for-word",
+    "version": "1.0.0",
+    "description": "Test OrbitDB as a peer-to-peer database for WORD (decentralized application for tracking election candidates' promises)",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Su Yon Sohn",
+    "license": "ISC",
+    "dependencies": {
+        "ipfs": "^0.33.0",
+        "orbit-db": "^0.19.9"
+    }
+}
