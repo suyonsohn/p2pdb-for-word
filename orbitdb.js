@@ -20,4 +20,10 @@ ipfs.on('ready', async () => {
     const db = await orbitdb.keyvalue('word-database')
     console.log(db.address.toString())
     // /orbitdb/QmPjF3u91uQdLrSBY2TxawPbUnTx8kahQEUAYK1SYJhkmi/word-database
+
+    const key = db.key
+    // Public key is required to grant write access
+    console.log(db.key.getPublic('hex'))
+
+
 })
