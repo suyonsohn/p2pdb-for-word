@@ -19,11 +19,13 @@ ipfs.on('ready', async () => {
     const orbitdb = new OrbitDB(ipfs)
 
     const access = {
-        // Give write access to ourselves
         write: [
+            // Give write access to ourselves
             orbitdb.key.getPublic('hex'),
             // Give access to peer
-            // '04b2071b3d2e2a0cfecc47b12b765165576bdd6dc441bca71e279e5a7ffbc2ba2f5b554bb5e7a111092430611148ec39a11fcf999810b04be069d151776ca55e0d'
+            // '04b2071b3d2e2a0cfecc47b12b765165576bdd6dc441bca71e279e5a7ffbc2ba2f5b554bb5e7a111092430611148ec39a11fcf999810b04be069d151776ca55e0d',
+            // Give write access to everyone
+            // write: ['*'],
         ],
     }
 
