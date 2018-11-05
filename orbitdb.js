@@ -24,12 +24,19 @@ ipfs.on('ready', async () => {
             orbitdb.key.getPublic('hex'),
             // Give access to peer
             // '04b2071b3d2e2a0cfecc47b12b765165576bdd6dc441bca71e279e5a7ffbc2ba2f5b554bb5e7a111092430611148ec39a11fcf999810b04be069d151776ca55e0d',
-            // Give write access to everyone
+            // Give write access to everyone. Access controller hash in the address will change.
             // '*',
         ],
     }
 
     const db1 = await orbitdb.keyvalue('word-database', access)
+    // Add entry
+    await db1.put('name', 'hello')
+    // Get entry
+    const value = db1.get('name')
+    console.log(`GET ENTRY: ${value}`)
+
+
     console.log(`DB ADDRESS: ${db1.address.toString()}`)
     // /orbitdb/QmPjF3u91uQdLrSBY2TxawPbUnTx8kahQEUAYK1SYJhkmi/word-database
 
