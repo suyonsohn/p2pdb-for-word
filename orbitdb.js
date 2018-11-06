@@ -32,13 +32,17 @@ ipfs.on('ready', async () => {
     const db1 = await orbitdb.keyvalue('word-database', access)
     // Add entry
     await db1.put('name', 'hello')
+    await db1.close()
+
+    // Load the database locally before using it 
+    const db2 = await orbitdb.keyvalue('word-database')
+    await db2.load()
     // Get entry
-    const value = db1.get('name')
+    const value = db2.get('name')
     console.log(`GET ENTRY: ${value}`)
 
-
-    console.log(`DB ADDRESS: ${db1.address.toString()}`)
     // /orbitdb/QmPjF3u91uQdLrSBY2TxawPbUnTx8kahQEUAYK1SYJhkmi/word-database
+    console.log(`DB ADDRESS: ${db1.address.toString()}`)
 
     // Second peer opens the database from the address
     // const db2 = await orbitdb.keyvalue(db1.address.toString())
